@@ -1,0 +1,101 @@
+Tipos de Eventos
+    Tipos de Eventos
+        Eventos de clique (click)
+            // HTML <button id="meuBotao">Clique aqui</button>
+
+            const meuBotao = document.getElementById("meuBotao");
+            meuBotao.addEventListener("click", function() {
+            alert("O botão foi clicado!");
+            });
+
+        Eventos de submissão de formulário (submit)
+            //HTML <form id="meuFormulario">
+            //HTML     <input type="text" name="nome" />
+            //HTML     <input type="submit" value="Enviar" />
+            //HTML  </form>
+
+            const meuFormulario = document.getElementById("meuFormulario");
+            meuFormulario.addEventListener("submit", function(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+            const nome = event.target.elements.nome.value;
+            alert(`O formulário foi enviado com o nome: ${nome}`);
+            });
+        
+        Eventos de teclado (keydown, keyup, keypress)
+            //HTML<input type="text" id="meuInput" />
+
+            const meuInput = document.getElementById("meuInput");
+            meuInput.addEventListener("keydown", function(event) {
+            console.log(`Tecla pressionada: ${event.key}`);
+            });
+
+        Eventos de foco (focus, blur)
+            //HTML <input type="text" id="meuCampo" />
+
+            const meuCampo = document.getElementById("meuCampo");
+            meuCampo.addEventListener("focus", function() {
+            console.log("Campo ganhou o foco.");
+            });
+
+            meuCampo.addEventListener("blur", function() {
+            console.log("Campo perdeu o foco.");
+            });
+
+    getAttribute:
+        // HTML: <div id="meuElemento" data-info="Exemplo de atributo">
+
+        const elemento = document.getElementById('meuElemento');
+        const valorDoAtributo = elemento.getAttribute('data-info');
+        console.log(valorDoAtributo); // Saída: "Exemplo de atributo"
+
+    setAttribute:
+        // HTML: <p id="meuParagrafo">Texto inicial</p>
+
+        const paragrafo = document.getElementById('meuParagrafo');
+        paragrafo.setAttribute('id', 'paragrafoModificado');
+        paragrafo.setAttribute('data-novo-atributo', 'Novo valor');
+
+    hasAttribute:
+        // HTML: <a href="https://www.exemplo.com" id="meuLink">Link de exemplo</a>
+
+        const link = document.getElementById('meuLink');
+        const temHref = link.hasAttribute('href');
+        console.log(temHref); // Saída: true
+        const temTarget = link.hasAttribute('target');
+        console.log(temTarget); // Saída: false
+    
+    removeAttribute:
+        // HTML: <img src="imagem.jpg" alt="Imagem de exemplo" id="minhaImagem">
+
+
+        const imagem = document.getElementById('minhaImagem');
+        imagem.removeAttribute('alt');
+
+DATE()
+    Construtor com argumentos (ano, mês, dia, hora, minuto, segundo, milissegundo)
+        const dataEspecifica = new Date(2023, 7, 3, 12, 30, 0, 0);
+
+    Construtor com uma string que representa a data (formato padrão é "yyyy-mm-dd"):
+        const data = "2023-08-03";
+        const formatoDeData = new Date(dateString);
+
+    Uma vez criado um objeto Date, você pode acessar informações específicas da data e hora, como o ano, mês, dia, hora, minuto e segundo usando os métodos de acesso do objeto:
+        const currentDate = new Date();
+
+        const ano = currentDate.getFullYear();  // Acessa o ano
+        const mês = currentDate.getMonth(); // Acessa o mês - Janeiro é 0, Fevereiro é 1, ..., Dezembro é 11
+        const dia = currentDate.getDate(); // Acessa o dia
+        const horas = currentDate.getHours(); // Acessa as horas 
+        const minutos = currentDate.getMinutes(); // Acessa os minutos
+        const segundos = currentDate.getSeconds(); // Acessa os segundos
+        const milissegundos = currentDate.getMilliseconds();  // Acessa os milissegundos 
+
+    Para modificar:
+        const data = new Date();
+
+        data.setFullYear(2024);  // Define o ano
+        data.setMonth(10); // Define o mês
+        data.setDate(25); // Define o dia
+        data.setHours(10);  // Define as horas
+        data.setMinutes(30); // Define os minutos
+        data.setSeconds(0); // Define os segundos
